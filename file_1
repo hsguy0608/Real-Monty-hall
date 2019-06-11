@@ -1,0 +1,61 @@
+a = []
+b = []
+c = []
+d = []
+e = []
+chs = 0
+chf = 0
+nchs = 0
+nchf = 0
+p = 0
+import random
+while p < 1000000 :
+    r = random.randint(1,5)
+    if r == 1 :
+        a.append(0)
+    elif r == 2 :
+        b.append(0)
+    elif r == 4 :
+        d.append(0)
+    elif r == 5 :
+        e.append(0)# 0 = 차 위치
+    else:
+        c.append(0)
+        
+    z = random.randint(1,5)
+    if z == 1 :
+        a.append(1)
+    elif z == 2 :               # 1 = 처음 고른 위치
+        b.append(1)
+    elif z == 4 :
+        d.append(1)
+    elif z == 5 :
+        e.append(1)
+    else:
+        c.append(1)
+        
+    if len(a) == 2 or len(b) == 2 or len(c) == 2 or len(d) == 2 or len(e) == 2:    # 처음 고른게 성공일때
+        w = random.randint(4,5)
+        if w == 4 :
+            nchs = nchs + 1
+        else :                     #4 = 안바꾸기. 5 = 바꾸기
+            chf = chf + 1
+    else :
+        q = random.randint(8,9)
+        if q == 8 :
+            chs = chs + 1
+        else :                     #8 = 바꾸기. 9 = 안바꾸기
+            nchf = nchf + 1
+    del a[:]
+    del b[:]
+    del c[:]
+    del d[:]
+    del e[:]
+    p = p + 1
+import matplotlib.pyplot as plt
+result_name = ['chs','chf','nchs','nchf']
+result = [chs, chf, nchs, nchf]
+plt.bar(range(4),result, width = 0.5)
+plt.xticks(range(4), result_name)
+plt.show()
+print(chs,chf,nchs,nchf)
