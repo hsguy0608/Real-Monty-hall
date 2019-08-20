@@ -53,9 +53,11 @@ while p < 1000000 :
     del e[:]
     p = p + 1
 import matplotlib.pyplot as plt
-result_name = ['chs','chf','nchs','nchf']
+%matplotlib inline
+result_name = ['바꿔서 성공한 경우','바꿔서 실패한 경우','안바꿔서 성공한 경우','안바꿔서 실패한 경우']
 result = [chs, chf, nchs, nchf]
 plt.bar(range(4),result, width = 0.5)
+plt.title("문이 5개인 경우")
 plt.xticks(range(4), result_name)
 plt.show()
 print(chs,chf,nchs,nchf)
